@@ -122,13 +122,11 @@ El sitio carga `app.min.css` y `app.min.js`. En Apache, `main.js` queda bloquead
 
 ```powershell
 npm install
-npm run build          # minifica assets + genera public/
-git init
-git add .
-git commit -m "Sitio NEXT TECHNOLOGIES listo para producción"
-git remote add origin https://github.com/TU_USUARIO/TU_REPO.git
-git push -u origin main
+npm run build
+.\github-setup.ps1     # login GitHub + crear repo + push
 ```
+
+> Si `gh` no se reconoce, cierra y abre la terminal, o usa `.\github-setup.ps1` (actualiza el PATH automáticamente).
 
 Luego importa el repo en [vercel.com/new](https://vercel.com/new) y configura `CSRF_SECRET` en Environment Variables.
 
