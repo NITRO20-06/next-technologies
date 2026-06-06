@@ -1,0 +1,21 @@
+{
+  "name": "next-technologies",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sitio corporativo NEXT TECHNOLOGIES — PHP local, Vercel en producción",
+  "scripts": {
+    "build:assets": "node scripts/minify-assets.mjs",
+    "build:vercel": "node scripts/build-vercel.mjs",
+    "build": "npm run build:assets && npm run build:vercel",
+    "vercel:preview": "npm run build && vercel",
+    "vercel:prod": "npm run build && vercel --prod"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "terser": "^5.39.0"
+  }
+}

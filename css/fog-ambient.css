@@ -1,0 +1,77 @@
+/**
+ * Neblina blanca/gris — estilo humo de referencia (volutas suaves, sube y baja).
+ * Overlay tenue; el texto queda por encima vía z-index y sombras en style.css.
+ */
+
+:root {
+  --fog-z-index: 900;
+  --fog-canvas-opacity: 0.42;
+  --fog-blur: 14px;
+  --fog-blend-mode: screen;
+}
+
+.ambient-fog {
+  position: fixed;
+  inset: 0;
+  z-index: var(--fog-z-index);
+  pointer-events: none;
+  overflow: hidden;
+  contain: layout style;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 48%, rgba(0, 0, 0, 0.5) 72%, transparent 94%);
+  mask-image: linear-gradient(to top, #000 0%, #000 48%, rgba(0, 0, 0, 0.5) 72%, transparent 94%);
+}
+
+/* Niebla densa en la base (como la referencia) */
+.ambient-fog::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 52%;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 95% 58% at 50% 100%, rgba(255, 255, 255, 0.09) 0%, transparent 62%),
+    radial-gradient(ellipse 55% 40% at 25% 100%, rgba(241, 245, 249, 0.07) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 38% at 75% 100%, rgba(226, 232, 240, 0.06) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.ambient-fog__ember {
+  display: none;
+}
+
+.ambient-fog__canvas {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: var(--fog-canvas-opacity);
+  mix-blend-mode: var(--fog-blend-mode);
+  filter: blur(var(--fog-blur));
+  transform: translateZ(0);
+}
+
+.ambient-fog--reduced .ambient-fog__canvas {
+  filter: blur(10px);
+  opacity: calc(var(--fog-canvas-opacity) * 0.55);
+}
+
+.ambient-fog--reduced::before {
+  opacity: 0.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --fog-canvas-opacity: 0.28;
+    --fog-blur: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --fog-blur: 12px;
+    --fog-canvas-opacity: 0.36;
+  }
+}

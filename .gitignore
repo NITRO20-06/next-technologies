@@ -1,0 +1,33 @@
+# Dependencias
+node_modules/
+
+# Entorno local y secretos
+.env
+.env.*
+!.env.example
+
+# Build Vercel (se genera en CI/CD)
+public/
+.vercel/
+
+# Datos sensibles
+data/contactos.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporales de Office / editores
+~$*
+*.tmp

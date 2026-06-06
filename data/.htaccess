@@ -1,0 +1,5 @@
+Require all denied
+
+<Files "contactos.log">
+  Require all denied
+</Files>

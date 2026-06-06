@@ -1,0 +1,8 @@
+includes/
+contacto.php
+iniciar.ps1
+build.ps1
+data/
+docs/
+scripts/generar_*.py
+*.ps1
