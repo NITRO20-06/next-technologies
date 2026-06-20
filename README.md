@@ -139,6 +139,6 @@ Variable obligatoria en Vercel: `CSRF_SECRET` (ver `.env.example`).
 
 ## Notas
 
-- **Puerto 8000 ocupado:** cierra otra instancia de `php -S` o cambia el puerto en `iniciar.ps1`.  
+- **Puerto 0000 ocupado:** cierra otra instancia de `php -S` o cambia el puerto en `iniciar.ps1`.  
 - **Inspección (F12):** HTML y `.min` son visibles; PHP e `includes/` no se ejecutan en el navegador.  
 - **Mantenimiento:** optimizar `images/equipo-next.png` si el peso importa; actualizar testimonios/galería en `index.php`.
