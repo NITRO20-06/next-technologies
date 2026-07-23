@@ -13,6 +13,14 @@
   <link rel="icon" href="images/logo-next.png" type="image/png">
   <link rel="stylesheet" href="css/vendor/phosphor/phosphor-regular.css?v=<?= asset_version('css/vendor/phosphor/phosphor-regular.css') ?>">
   <link rel="stylesheet" href="css/app.min.css?v=<?= asset_version('css/app.min.css') ?>">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     (function () {
@@ -54,6 +62,7 @@
 
   <main id="main">
     <section class="hero" id="inicio">
+      <div class="hero__blinds gradient-blinds-container" id="heroBlinds" aria-hidden="true"></div>
       <div class="hero__atmosphere" aria-hidden="true"></div>
       <div class="container hero__layout">
         <div class="hero__content">
@@ -73,19 +82,10 @@
             </a>
           </div>
         </div>
-        <figure class="hero__viewer" data-hero="photo">
-          <img
-            class="hero__photo-img"
-            src="images/equipo-next.png"
-            alt="Equipo de NEXT TECHNOLOGIES en nuestro local de Jaén, Perú"
-            width="852"
-            height="795"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          >
-          <span class="hero__photo-shine" aria-hidden="true"></span>
-        </figure>
+        <div class="hero__viewer hero__viewer--pc" data-hero="photo">
+          <canvas id="pcAssembly" class="hero__pc-canvas" aria-label="Animación 3D de PC armándose"></canvas>
+          <p class="hero__pc-label" id="pcAssemblyLabel">Iniciando ensamblaje…</p>
+        </div>
       </div>
     </section>
 
@@ -509,6 +509,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="module" src="js/vendor/gradient-blinds.js?v=<?= asset_version('js/vendor/gradient-blinds.js') ?>"></script>
+  <script type="module" src="js/vendor/pc-assembly.js?v=<?= asset_version('js/vendor/pc-assembly.js') ?>"></script>
   <script src="js/vendor/splash-cursor.js?v=<?= asset_version('js/vendor/splash-cursor.js') ?>" defer></script>
   <script src="js/app.min.js?v=<?= asset_version('js/app.min.js') ?>"></script>
   <script>

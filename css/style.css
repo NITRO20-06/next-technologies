@@ -237,7 +237,7 @@ button { cursor: pointer; border: none; background: none; }
 
 body.menu-open { overflow: hidden; }
 
-/* Hero — brand + foto encajada (sin estirar imagen de baja resolución) */
+/* Hero — brand + foto + Gradient Blinds (React Bits) */
 .hero {
   position: relative;
   min-height: 100dvh;
@@ -248,26 +248,37 @@ body.menu-open { overflow: hidden; }
   overflow: hidden;
 }
 
+.gradient-blinds-container,
+.hero__blinds {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__blinds canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.gradient-blinds--static {
+  background:
+    linear-gradient(115deg, #061018 0%, #0a4a55 42%, #129aa2 68%, #1ecad3 100%);
+  opacity: 0.55;
+}
+
 .hero__atmosphere {
   position: absolute;
   inset: 0;
   z-index: 0;
+  pointer-events: none;
   background:
-    radial-gradient(ellipse 55% 45% at 85% 40%, rgba(30, 202, 211, 0.14), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(18, 90, 120, 0.18), transparent 55%),
-    linear-gradient(160deg, #061018 0%, #0a1824 48%, #07141c 100%);
-}
-
-.hero__atmosphere::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.35;
-  background-image:
-    linear-gradient(rgba(148, 185, 204, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 185, 204, 0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+    linear-gradient(90deg, rgba(7, 16, 24, 0.88) 0%, rgba(7, 16, 24, 0.55) 42%, rgba(7, 16, 24, 0.2) 70%, rgba(7, 16, 24, 0.45) 100%),
+    linear-gradient(180deg, rgba(7, 16, 24, 0.35) 0%, transparent 35%, rgba(7, 16, 24, 0.55) 100%);
 }
 
 .hero__layout {
@@ -319,52 +330,54 @@ body.menu-open { overflow: hidden; }
   position: relative;
   margin: 0;
   justify-self: end;
-  width: min(100%, 520px);
-  aspect-ratio: 1 / 1;
+  width: min(100%, 580px);
+  aspect-ratio: 5 / 6;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--line-strong);
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.45),
-    0 0 40px rgba(30, 202, 211, 0.12);
-  background: var(--bg-elevated);
+    0 0 50px rgba(30, 202, 211, 0.14);
+  background: #050b12;
 }
 
-.hero__photo-img {
+.hero__viewer--pc {
+  touch-action: none;
+}
+
+.hero__pc-canvas {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 28%;
-  display: block;
-  transform: scale(1.02);
-  transition: transform 0.8s ease;
+  cursor: grab;
 }
 
-.hero__viewer:hover .hero__photo-img {
-  transform: scale(1.06);
-}
+.hero__pc-canvas:active { cursor: grabbing; }
 
-.hero__photo-shine {
+.hero__pc-label {
   position: absolute;
-  inset: 0;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  z-index: 2;
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(5, 12, 18, 0.72);
+  border: 1px solid rgba(30, 202, 211, 0.22);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
   pointer-events: none;
-  background:
-    linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.12) 48%, transparent 62%),
-    linear-gradient(180deg, transparent 50%, rgba(5, 12, 18, 0.45) 100%),
-    linear-gradient(135deg, rgba(30, 202, 211, 0.1), transparent 45%);
-  background-size: 220% 100%, 100% 100%, 100% 100%;
-  animation: heroShine 5.5s ease-in-out infinite;
-}
-
-@keyframes heroShine {
-  0%, 100% { background-position: 120% 0, 0 0, 0 0; }
-  50% { background-position: -20% 0, 0 0, 0 0; }
+  backdrop-filter: blur(8px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__photo-shine { animation: none; }
-  .hero__photo-img,
-  .hero__viewer:hover .hero__photo-img { transform: none; }
+  .hero__pc-label { opacity: 0.85; }
 }
 
 /* Services */
@@ -1088,7 +1101,7 @@ body.menu-open { overflow: hidden; }
 
   .hero__viewer {
     justify-self: center;
-    width: min(100%, 420px);
+    width: min(100%, 440px);
     order: -1;
   }
 
