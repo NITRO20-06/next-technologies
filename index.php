@@ -512,6 +512,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="module" src="js/vendor/gradient-blinds.js?v=<?= asset_version('js/vendor/gradient-blinds.js') ?>"></script>
   <script type="module" src="js/vendor/pc-assembly.js?v=<?= asset_version('js/vendor/pc-assembly.js') ?>"></script>
   <script src="js/vendor/splash-cursor.js?v=<?= asset_version('js/vendor/splash-cursor.js') ?>" defer></script>

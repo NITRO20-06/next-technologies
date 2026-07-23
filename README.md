@@ -1,6 +1,6 @@
 # NEXT TECHNOLOGIES
 
-Sitio web corporativo de **NEXT TECHNOLOGIES** (soporte técnico en Jaén, Perú). Página de una sola vista con formulario de contacto que redirige a WhatsApp. Backend en PHP; frontend con animaciones GSAP.
+Sitio web corporativo de **NEXT TECHNOLOGIES** (soporte técnico en Jaén, Perú). Página de una sola vista con formulario de contacto que redirige a WhatsApp. Backend en PHP; frontend con animaciones GSAP y Anime.js.
 
 ---
 
@@ -22,7 +22,9 @@ El formulario valida en servidor (CSRF), puede guardar un log y abre WhatsApp co
 
 - **PHP 8+** — sesiones, validación, redirección a WhatsApp  
 - **HTML / CSS / JS** — `style.css` y `main.js` en desarrollo; `app.min.*` en producción  
-- **GSAP 3 + ScrollTrigger** — animaciones y scroll horizontal (CDN)  
+- **GSAP 3 + ScrollTrigger** — animaciones de UI y scroll (CDN)
+- **Anime.js 3** — timelines del ensamblaje 3D del PC en el hero (CDN)
+- **Three.js** — modelo 3D interactivo del PC (CDN / import map)  
 - **Phosphor Icons**, fuentes **Outfit** y **JetBrains Mono**
 
 Documentación técnica detallada: **[docs/TECNOLOGIAS.md](docs/TECNOLOGIAS.md)** · Word: **[docs/TECNOLOGIAS.docx](docs/TECNOLOGIAS.docx)**
