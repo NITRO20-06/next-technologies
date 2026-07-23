@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
 async function minifyJavaScript() {
-  const files = ['js/fog-ambient.js', 'js/main.js'].map((f) => path.join(root, f));
+  const files = ['js/main.js'].map((f) => path.join(root, f));
   const combined = files.map((f) => fs.readFileSync(f, 'utf8')).join('\n');
   const result = await minifyJs(combined, {
     compress: true,
@@ -28,7 +28,7 @@ async function minifyJavaScript() {
 }
 
 function minifyStyles() {
-  const inputs = ['css/fog-ambient.css', 'css/style.css'].map((f) =>
+  const inputs = ['css/style.css'].map((f) =>
     fs.readFileSync(path.join(root, f), 'utf8')
   );
   const output = new CleanCSS({ level: 2 }).minify(inputs.join('\n'));

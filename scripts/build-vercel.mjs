@@ -104,7 +104,7 @@ const indexRedirect = `<!DOCTYPE html>
 <body><p><a href="/">Ir al sitio</a></p></body>
 </html>`;
 
-for (const dir of ['css', 'js', 'images']) {
+for (const dir of ['css', 'js', 'images', 'models']) {
   copyDir(dir);
 }
 
