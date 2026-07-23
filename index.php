@@ -33,6 +33,10 @@
   </script>
 </head>
 <body>
+  <div class="site-fx" aria-hidden="true">
+    <div id="siteBlinds" class="site-blinds gradient-blinds-container"></div>
+    <div class="site-blinds__veil"></div>
+  </div>
   <header class="header" id="header">
     <nav class="nav container" aria-label="Navegación principal">
       <a href="#inicio" class="nav__logo" aria-label="NEXT TECHNOLOGIES - Inicio">
@@ -62,7 +66,6 @@
 
   <main id="main">
     <section class="hero" id="inicio">
-      <div class="hero__blinds gradient-blinds-container" id="heroBlinds" aria-hidden="true"></div>
       <div class="hero__atmosphere" aria-hidden="true"></div>
       <div class="container hero__layout">
         <div class="hero__content">

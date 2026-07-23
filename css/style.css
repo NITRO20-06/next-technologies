@@ -46,14 +46,57 @@ body {
   font-size: 1.05rem;
   line-height: 1.65;
   color: var(--ink);
-  background:
-    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(30, 202, 211, 0.08), transparent 55%),
-    radial-gradient(ellipse 60% 40% at 100% 20%, rgba(18, 100, 140, 0.12), transparent 50%),
-    linear-gradient(180deg, #061017 0%, var(--bg) 40%, #08131c 100%);
-  background-attachment: fixed;
+  background: transparent;
   min-height: 100dvh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Gradient Blinds (React Bits) — fondo de todo el sitio */
+.site-fx {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.site-blinds,
+.gradient-blinds-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.site-blinds canvas,
+.gradient-blinds-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.site-blinds__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6, 16, 23, 0.55) 0%, rgba(7, 16, 24, 0.72) 45%, rgba(8, 19, 28, 0.82) 100%),
+    radial-gradient(ellipse 70% 45% at 15% 0%, rgba(30, 202, 211, 0.12), transparent 55%);
+}
+
+.gradient-blinds--static {
+  background:
+    linear-gradient(115deg, #061018 0%, #0a4a55 42%, #129aa2 68%, #1ecad3 100%);
+  opacity: 0.7;
+}
+
+main,
+.footer {
+  position: relative;
+  z-index: 1;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -237,7 +280,7 @@ button { cursor: pointer; border: none; background: none; }
 
 body.menu-open { overflow: hidden; }
 
-/* Hero — brand + foto + Gradient Blinds (React Bits) */
+/* Hero — brand + PC 3D (Gradient Blinds es fondo global) */
 .hero {
   position: relative;
   min-height: 100dvh;
@@ -248,37 +291,14 @@ body.menu-open { overflow: hidden; }
   overflow: hidden;
 }
 
-.gradient-blinds-container,
-.hero__blinds {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.hero__blinds canvas {
-  width: 100% !important;
-  height: 100% !important;
-  display: block;
-}
-
-.gradient-blinds--static {
-  background:
-    linear-gradient(115deg, #061018 0%, #0a4a55 42%, #129aa2 68%, #1ecad3 100%);
-  opacity: 0.55;
-}
-
 .hero__atmosphere {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(7, 16, 24, 0.88) 0%, rgba(7, 16, 24, 0.55) 42%, rgba(7, 16, 24, 0.2) 70%, rgba(7, 16, 24, 0.45) 100%),
-    linear-gradient(180deg, rgba(7, 16, 24, 0.35) 0%, transparent 35%, rgba(7, 16, 24, 0.55) 100%);
+    linear-gradient(90deg, rgba(7, 16, 24, 0.55) 0%, rgba(7, 16, 24, 0.25) 42%, rgba(7, 16, 24, 0.1) 70%, rgba(7, 16, 24, 0.35) 100%),
+    linear-gradient(180deg, rgba(7, 16, 24, 0.2) 0%, transparent 35%, rgba(7, 16, 24, 0.4) 100%);
 }
 
 .hero__layout {

@@ -302,7 +302,7 @@ export function initGradientBlinds(container, options = {}) {
 }
 
 function boot() {
-  const el = document.getElementById('heroBlinds');
+  const el = document.getElementById('siteBlinds') || document.getElementById('heroBlinds');
   if (!el) return;
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -316,17 +316,13 @@ function boot() {
     paused: false,
     dpr: coarse ? 1 : Math.min(window.devicePixelRatio || 1, 1.75),
     blindCount: coarse ? 10 : 14,
-    noise: 0.2,
-    spotlightOpacity: 0.7,
+    noise: 0.22,
+    spotlightOpacity: 0.75,
+    spotlightRadius: 0.55,
+    mouseDampening: 0.18,
+    gradientColors: ['#061820', '#0a4a55', '#129aa2', '#1ecad3'],
   });
   if (!instance) return;
-
-  const hero = el.closest('.hero') || el;
-  const io = new IntersectionObserver(
-    ([entry]) => instance.setPaused(!entry.isIntersecting),
-    { threshold: 0.05 }
-  );
-  io.observe(hero);
 
   document.addEventListener('visibilitychange', () => {
     instance.setPaused(document.hidden);
